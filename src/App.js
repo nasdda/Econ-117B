@@ -1,11 +1,18 @@
 import React from 'react';
 import './App.css';
-import Toolbar from './components/Navigation/Toolbar/toolbar'
+import Home from './components/Home/home'
 function App() {
   return (
     <div>
       <header className="App-header">
-        <Toolbar />
+        <Home></Home>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+        
       </header>
     </div>
   );

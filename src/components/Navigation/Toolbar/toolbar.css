@@ -1,10 +1,16 @@
 .Toolbar {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
-    height: 90px;
+    height: 70px;
     display: flex;
     padding-right: 10%;
     box-shadow: 0 0 10px #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+    clear: both
 }
 
 .Site-name {
@@ -27,8 +33,8 @@
 .Navigation-option {
     width: 30%;
     text-align: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .Navigation :hover{
     background-color: azure;

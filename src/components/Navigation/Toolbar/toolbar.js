@@ -9,6 +9,7 @@ const toolbar = (props) => {
                 <p className='Navigation-option'>Home</p>
                 <p className='Navigation-option'>Quizzes</p>
                 <p className='Navigation-option'>Files</p>
+                <p className='Navigation-option'>Contact</p>
             </nav>
 
         </div>)
