@@ -1,0 +1,36 @@
+.Toolbar {
+    font-size: 24px;
+    font-weight: bold;
+    height: 90px;
+    display: flex;
+    padding-right: 10%;
+    box-shadow: 0 0 10px #000000;
+}
+
+.Site-name {
+    border: #000000;
+    border-style: solid;
+    left: 0;
+    padding: 0 20px;
+    width: 140px;
+    text-align: center;
+    margin-right: 10%;
+}
+
+.Navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.Navigation-option {
+    width: 30%;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.Navigation :hover{
+    background-color: azure;
+    cursor: pointer;
+}
