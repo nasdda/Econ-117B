@@ -11,7 +11,6 @@ const toolbar = (props) => {
                 <p className='Navigation-option'>Files</p>
                 <p className='Navigation-option'>Contact</p>
             </nav>
-
         </div>)
 }
 
