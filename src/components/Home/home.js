@@ -8,6 +8,7 @@ const home = (props) => {
             <Toolbar />
             <Spacer>
                 <h1>Home</h1>
+                <img src={"../../public/homework-hi.svg"}/>
                 <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                 <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
                 <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
