@@ -1,0 +1,47 @@
+.Toolbar {
+    background-color: #C5B358;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    display: flex;
+    padding-right: 10%;
+    box-shadow: 0 0 10px #000000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 500;
+}
+
+.Site-name {
+    font-size: 25px;
+    font-weight: 900;
+    background-color: #2b3a2e;
+    color: rgb(252, 252, 253);
+    padding: 5px 20px 0 20px;
+    width: 190px;
+    text-align: center;
+    margin-right: 10%;
+}
+
+.Navigation {
+    background-color: rgb(15, 63, 23);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.Navigation-option {
+    width: 30%;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.Navigation :hover {
+    background-color: rgb(36, 187, 74);
+    cursor: pointer;
+}

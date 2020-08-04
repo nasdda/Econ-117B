@@ -1,0 +1,17 @@
+.Pdf {
+    display: flex;
+    flex-direction: row;
+    text-decoration: underline;
+    margin-left: 20%;
+}
+
+.Pdf:hover {
+    cursor: pointer;
+    color: aliceblue
+}
+
+.Icon-pdf {
+    margin-top: 25px;
+    margin-right: 10px
+}
+

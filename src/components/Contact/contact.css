@@ -1,0 +1,17 @@
+.Profile {
+    display: flex;
+    font-size: 24px;
+    margin-left: 10%;
+}
+
+.Picture {
+    border-style: solid;
+    border-color: burlywood;
+    border-width: 5px;
+}
+
+.Information {
+    display: flex;
+    flex-direction: column;
+    margin-left: 5%
+}

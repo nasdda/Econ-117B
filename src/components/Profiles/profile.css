@@ -1,0 +1,22 @@
+.Profile {
+    display: flex;
+    margin-top: 3%;
+    margin-left: 3%;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.Picture {
+    border-style: solid;
+    border-color: burlywood;
+    border-width: 5px;
+    width: 200x;
+    height: 200px;
+}
+
+.Information {
+    display: flex;
+    margin-top: 1%;
+    flex-direction: column;
+    margin-left: 30px;
+}

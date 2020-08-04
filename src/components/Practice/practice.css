@@ -1,0 +1,11 @@
+.Chapter-selection {
+    font-size: 24px;
+    margin-top: 20px
+}
+
+.Practice-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}

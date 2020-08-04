@@ -1,0 +1,20 @@
+.Resource-item {
+    display: flex;
+    flex-direction: row;
+    text-decoration: underline;
+}
+
+.Resource-item:hover {
+    cursor: pointer;
+    color: aliceblue
+}
+
+.Icon {
+    margin-top: 25px;
+    margin-right: 20px;
+}
+
+.Icon svg {
+    width: 30px;
+    height: 30px
+}
