@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Toolbar from '../Navigation/Toolbar/toolbar'
 import '../../App.css'
 import './practice.css'
@@ -18,6 +18,32 @@ function Practice(props) {
 
     const [chapterState, setChapter] = useState({ chapter: '*', error: false })
 
+    useEffect(() => {
+        let chapter = 'chapter' + chapterState.chapter
+        let databasePath = '/' + chapter + '.json'
+        if (chapterState.chapter !== '*' && !chapterState[chapter]) {
+            database.get(databasePath).then(response => {
+                const problems = {}
+                for (let k in response.data) {
+                    problems[k] = createProblem(response.data[k])
+                }
+                setChapter({
+                    ...chapterState,
+                    [chapter]: { ...problems },
+                    error: false
+                })
+            }).catch(e => {
+                if (!chapterState.error) {
+                    setChapter({
+                        ...chapterState,
+                        error: true
+                    })
+                }
+                console.log(e)
+            })
+        }
+    })
+
     const onChapterChange = (event) => {
         setChapter({
             ...chapterState,
@@ -26,29 +52,6 @@ function Practice(props) {
     }
 
     let chapterProblems = null
-
-
-    const fetchChapter = (chapter, databasePath) => {
-        database.get(databasePath).then(response => {
-            const problems = {}
-            for (let k in response.data) {
-                problems[k] = createProblem(response.data[k])
-            }
-            setChapter({
-                ...chapterState,
-                [chapter]: { ...problems },
-                error: false
-            })
-        }).catch(e => {
-            if(!chapterState.error){
-                setChapter({
-                    ...chapterState,
-                    error: true
-                })
-            }
-            console.log(e)
-        })
-    }
 
     const changeHandler = (event, identifier) => {
         const updatedChapter = { ...chapterState["chapter" + chapterState.chapter] }
@@ -113,7 +116,6 @@ function Practice(props) {
                     onSubmit={submitHandler}
                 />
             } else {
-                fetchChapter('chapter1', '/chapter1.json')
                 chapterProblems = <Loader />
             }
             break
@@ -123,7 +125,6 @@ function Practice(props) {
                     onChange={changeHandler}
                     onSubmit={submitHandler} />
             } else {
-                fetchChapter('chapter2', '/chapter2.json')
                 chapterProblems = <Loader />
             }
             break
