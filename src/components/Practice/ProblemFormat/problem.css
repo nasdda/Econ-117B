@@ -3,10 +3,11 @@
     flex-direction: column;
     width: 900px;
     background-color: #fbffd9;
-    margin: 0 auto 10px auto;
+    margin: 0 auto 20px auto;
     text-align: center;
     font-size: 24px;
-    padding: 0 10px 20px 10px
+    padding: 0 10px 20px 10px;
+    box-shadow: 8px 8px 2px 1px rgba(101, 109, 103, 0.5);
 }
 
 .Check-button {
