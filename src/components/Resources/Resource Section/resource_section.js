@@ -7,6 +7,7 @@ const resourceSection = (props) => {
     const renderedItems = props.contents.map(item => (
         <ResourceItem fileName="Course Syllabus"
             key={item.name}
+            downloadable={item.downloadable}
             icon={item.icon}
             name={item.name}
             src={item.source}

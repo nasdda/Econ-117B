@@ -23,11 +23,13 @@ const resources = (props) => {
             sectionName: "Introduction",
             contents: [
                 {
+                    downloadable: true,
                     icon: <PdfIcon />,
                     name: "Course Syllabus",
                     source: CourseSyllabus
                 },
                 {
+                    downloadable: false,
                     icon: <VideoIcon />,
                     name: "Good Song",
                     source: "https://www.youtube.com/embed/lFNWUL9fqG8?list=LLXVwRHW9UOTmw20RfXGzVTg"

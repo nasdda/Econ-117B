@@ -1,31 +1,38 @@
 import React, { useState } from 'react'
 import Modal from '../Modal/modal'
+import { ReactComponent as Preview } from '../../../assets/preview.svg'
+import { ReactComponent as Download } from '../../../assets/download.svg'
 import './resource_item.css'
 import '../../../App.css'
 
 function ResourceItem(props) {
     const [toggleState, setToggle] = useState(false)
 
-    const onClickHandler = event => {
-        setToggle(true)
-    }
-
-    const closeModalHandler = event => {
-        setToggle(false)
-    }
-
     return (
         <React.Fragment>
-            <div className="Resource-item" onClick={onClickHandler}>
+            <div className="Resource-item" >
                 <div className="Icon">
                     {props.icon}
                 </div>
-                <div className="tooltip">
-                    <p className="File-name">{props.name}</p>
-                    <span className="tooltiptext">Preview</span>
+                <p className="File-name"><a href={props.src} rel="noopener noreferrer" target="_blank">{props.name}</a></p>
+                <div className="Option-icon">
+                    <div className="tooltip">
+                        <Preview onClick={() => setToggle(true)} />
+                        <span className="tooltiptext">Preview</span>
+                    </div>
+
+                    {props.downloadable &&
+                        <div className="tooltip">
+                            <a href={props.src} download={props.name}>
+                                <Download />
+                            </a>
+                            <span className="tooltiptext">Download</span>
+                        </div>}
+
+
                 </div>
             </div>
-            <Modal show={toggleState} src={props.src} onClick={closeModalHandler} />
+            <Modal show={toggleState} src={props.src} onClick={() => setToggle(false)} />
         </React.Fragment>
 
     )

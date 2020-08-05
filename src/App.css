@@ -6,6 +6,10 @@ p {
     font-size: 24px;
 }
 
+a {
+    color: inherit
+}
+
 .App-header {}
 
 .Notice {
@@ -38,6 +42,10 @@ p {
     z-index: 1;
     top: 25px;
     left: 105%;
+}
+
+.tooltip:hover {
+    cursor: pointer;
 }
 
 .tooltip:hover .tooltiptext {

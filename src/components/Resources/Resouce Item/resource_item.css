@@ -1,21 +1,38 @@
 .Resource-item {
     display: flex;
     flex-direction: row;
-    text-decoration: underline;
     width: fit-content
 }
 
-.Resource-item:hover {
+.File-name{
+    text-decoration: underline;
+}
+
+.File-name:hover {
     cursor: pointer;
-    color: aliceblue
+    color: aliceblue;
 }
 
 .Icon {
     margin-top: 25px;
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .Icon svg {
     width: 30px;
     height: 30px
+}
+
+
+.Option-icon {
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+    margin-left: 30px;
+    margin-top: 33px
+}
+
+.Option-icon svg {
+    width: 20px;
+    height: 20px;
 }
