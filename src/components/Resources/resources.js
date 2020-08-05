@@ -39,6 +39,7 @@ const resources = (props) => {
 
     sections = sections.map(section => (
         <ResourceSection
+            key={section.sectionName}
             sectionName={section.sectionName}
             contents={section.contents}
         />

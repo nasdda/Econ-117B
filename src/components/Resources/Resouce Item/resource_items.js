@@ -20,9 +20,9 @@ function ResourceItem(props) {
                 <div className="Icon">
                     {props.icon}
                 </div>
-                <div class="tooltip">
+                <div className="tooltip">
                     <p className="File-name">{props.name}</p>
-                    <span class="tooltiptext">Preview</span>
+                    <span className="tooltiptext">Preview</span>
                 </div>
             </div>
             <Modal show={toggleState} src={props.src} onClick={closeModalHandler} />

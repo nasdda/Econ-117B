@@ -1,20 +1,101 @@
 import React, { useState } from 'react'
 import Toolbar from '../Navigation/Toolbar/toolbar'
-import Chapter1 from './Chapters/Chapter1/chapter1'
-import Chapter2 from './Chapters/Chapter2/chapter2'
 import '../../App.css'
 import './practice.css'
 
 
+
+////
+import Chapter from './Chapters/chapter'
+import database from '../../Database/database'
+import createProblem from './ProblemFormat/problem_config'
+import Loader from '../Loader/loader'
+import problemType from './ProblemFormat/problem_types'
+
+
+
 function Practice(props) {
 
-    const [chapterState, setChapter] = useState({ chapter: '*' })
+    const [chapterState, setChapter] = useState({ chapter: '*', error: false })
 
     const onChapterChange = (event) => {
-        setChapter({ chapter: event.target.value.trim() })
+        setChapter({
+            ...chapterState,
+            chapter: event.target.value.trim()
+        })
     }
 
     let chapterProblems = null
+
+
+    const fetchChapter = (chapter, databasePath) => {
+        database.get(databasePath).then(response => {
+            const problems = {}
+            for (let k in response.data) {
+                problems[k] = createProblem(response.data[k])
+            }
+            setChapter({
+                ...chapterState,
+                [chapter]: { ...problems },
+                error: false
+            })
+        }).catch(e => {
+            if(!chapterState.error){
+                setChapter({
+                    ...chapterState,
+                    error: true
+                })
+            }
+            console.log(e)
+        })
+    }
+
+    const changeHandler = (event, identifier) => {
+        const updatedChapter = { ...chapterState["chapter" + chapterState.chapter] }
+        const updatedProblem = { ...updatedChapter[identifier] }
+
+        if (updatedProblem.type === problemType.ALL_THAT_APPLY) {
+            if (updatedProblem.value.has(event.target.value)) {
+                updatedProblem.value.delete(event.target.value)
+            } else {
+                updatedProblem.value.add(event.target.value)
+            }
+        } else {
+            updatedProblem.value = event.target.value
+        }
+        updatedChapter[identifier] = updatedProblem
+        setChapter({
+            ...chapterState,
+            ["chapter" + chapterState.chapter]: updatedChapter
+        })
+    }
+
+    const submitHandler = (event, identifier) => {
+        event.preventDefault()
+        const updatedChapter = { ...chapterState["chapter" + chapterState.chapter] }
+        const updatedProblem = { ...updatedChapter[identifier] }
+        let inputAnswer = null
+        let correctAnswer = null
+
+        if (updatedProblem.type === problemType.ALL_THAT_APPLY) {
+            inputAnswer = [...updatedProblem.value].sort().join('')
+            correctAnswer = updatedProblem.answer.sort().join('')
+        } else {
+            inputAnswer = updatedProblem.value
+            correctAnswer = updatedProblem.answer
+        }
+        if (inputAnswer.trim().toLowerCase() === correctAnswer.trim().toLowerCase()) {
+            updatedProblem.correct = true
+        } else {
+            updatedProblem.correct = false
+        }
+        updatedChapter[identifier] = updatedProblem
+        setChapter({
+            ...chapterState,
+            ["chapter" + chapterState.chapter]: updatedChapter
+        })
+    }
+
 
     switch (chapterState.chapter) {
         case '*':
@@ -26,10 +107,25 @@ function Practice(props) {
             )
             break
         case '1':
-            chapterProblems = <Chapter1 />
+            if (chapterState.chapter1) {
+                chapterProblems = <Chapter problems={chapterState.chapter1}
+                    onChange={changeHandler}
+                    onSubmit={submitHandler}
+                />
+            } else {
+                fetchChapter('chapter1', '/chapter1.json')
+                chapterProblems = <Loader />
+            }
             break
         case '2':
-            chapterProblems = <Chapter2 />
+            if (chapterState.chapter2) {
+                chapterProblems = <Chapter problems={chapterState.chapter2}
+                    onChange={changeHandler}
+                    onSubmit={submitHandler} />
+            } else {
+                fetchChapter('chapter2', '/chapter2.json')
+                chapterProblems = <Loader />
+            }
             break
         default:
             chapterProblems = <p className="Notice">No problems available.</p>
@@ -50,7 +146,9 @@ function Practice(props) {
                 </select>
             </div>
             <br />
-            {chapterProblems}
+            {chapterState.error ?
+                <p className="Error-message">Failed to load questions. <br />Please check your internet connection or try refreshing page.</p> :
+                chapterProblems}
         </React.Fragment>
     )
 }
