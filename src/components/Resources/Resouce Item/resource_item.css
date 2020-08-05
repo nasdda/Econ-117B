@@ -4,10 +4,6 @@
     width: fit-content
 }
 
-.File-name{
-    text-decoration: underline;
-}
-
 .File-name:hover {
     cursor: pointer;
     color: aliceblue;

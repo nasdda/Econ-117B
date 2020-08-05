@@ -14,7 +14,7 @@ const Profile = (props) => {
             <img className="Picture" src={props.src} alt={props.alt} onLoad={loaded} style={{ display: loadingState ? "block" : "none" }} />
             <div className="Information">
                 <p>{props.name}</p>
-                <p><a target="_blank" rel="noopener noreferrer" href={'mailto:' + props.email}>{props.email}</a></p>
+                <p className="Email"><a target="_blank" rel="noopener noreferrer" href={'mailto:' + props.email}>{props.email}</a></p>
             </div>
         </div>
     )
