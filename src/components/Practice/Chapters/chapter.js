@@ -18,6 +18,7 @@ const chapter = (props) => {
         <Problem
             key={prob.id}
             id={prob.id}
+            chapter={props.chapter}
             type={prob.config.type}
             question={prob.config.question}
             choices={prob.config.choices}

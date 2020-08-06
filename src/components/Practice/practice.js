@@ -17,14 +17,14 @@ function Practice(props) {
 
     const onChapterChange = (event) => {
         setChapter({
-            ...chapterState,
-            chapter: event.target.value.trim()
+            chapter: event.target.value.trim(),
+            error: false
         })
     }
 
     const changeHandler = (event, identifier) => {
-        const updatedChapter = { ...chapterState["chapter" + chapterState.chapter] }
-        const updatedProblem = { ...updatedChapter[identifier] }
+        const updatedProblems = { ...chapterState.problems }
+        const updatedProblem = { ...updatedProblems[identifier] }
 
         if (updatedProblem.type === problemType.ALL_THAT_APPLY) {
             if (updatedProblem.value.has(event.target.value)) {
@@ -35,17 +35,17 @@ function Practice(props) {
         } else {
             updatedProblem.value = event.target.value
         }
-        updatedChapter[identifier] = updatedProblem
+        updatedProblems[identifier] = updatedProblem
         setChapter({
             ...chapterState,
-            ["chapter" + chapterState.chapter]: updatedChapter
+            problems: updatedProblems
         })
     }
 
     const submitHandler = (event, identifier) => {
         event.preventDefault()
-        const updatedChapter = { ...chapterState["chapter" + chapterState.chapter] }
-        const updatedProblem = { ...updatedChapter[identifier] }
+        const updatedProblems = { ...chapterState.problems }
+        const updatedProblem = { ...updatedProblems[identifier] }
         let inputAnswer = null
         let correctAnswer = null
 
@@ -61,28 +61,28 @@ function Practice(props) {
         } else {
             updatedProblem.correct = false
         }
-        updatedChapter[identifier] = updatedProblem
+        updatedProblems[identifier] = updatedProblem
         setChapter({
             ...chapterState,
-            ["chapter" + chapterState.chapter]: updatedChapter
+            problems: updatedProblems
         })
     }
 
     const resetHandler = (chapter) => {
         const resettedProblems = {}
-        for (let k in chapterContent.default[chapter]) {
-            resettedProblems[k] = createProblem(chapterContent.default[chapter][k])
-        }
+        document.querySelectorAll('input[type="checkbox"]').forEach(checkBox => checkBox.checked = false)
         document.querySelectorAll(".Choices-form").forEach(form => {
             form.reset()
         })
+        for (let k in chapterContent.default[chapter]) {
+            resettedProblems[k] = createProblem(chapterContent.default[chapter][k])
+        }
+        console.log(resettedProblems)
         setChapter({
             ...chapterState,
-            [chapter]: resettedProblems
+            problems: resettedProblems
         })
     }
-
-
 
     let chapterProblems = null
     let resetButton = null
@@ -90,21 +90,22 @@ function Practice(props) {
 
     const setDisplayedContent = (chapter) => {
         resetButton = <button className="Reset-button" onClick={() => { resetHandler(chapter) }}>Reset</button>
-        if (!chapterState[chapter]) {
+        if (!chapterState.problems) {
             for (let k in chapterContent.default[chapter]) {
                 problems[k] = createProblem(chapterContent.default[chapter][k])
             }
             setChapter({
                 ...chapterState,
-                [chapter]: problems
+                problems: problems
             })
         }
-        chapterProblems = <Chapter problems={chapterState[chapter]}
+
+        chapterProblems = <Chapter problems={chapterState.problems}
+            chapter={chapter}
             onChange={changeHandler}
             onSubmit={submitHandler}
         />
     }
-
 
     switch (chapterState.chapter) {
         case '*':

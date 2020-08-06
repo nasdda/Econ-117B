@@ -10,10 +10,10 @@ function Problem(props) {
     switch (props.type) {
         case problemType.MULTIPLE_CHOICE:
             input = props.choices.map((choice, index) => (
-                <div key={`${props.qnumber}-${index}`}>
+                <div key={`${props.chapter}-${props.qnumber}-${index}`}>
                     <input type="radio"
-                        id={`${props.qnumber}-${index}`}
-                        name={props.qnumber}
+                        id={`${props.chapter}-${props.qnumber}-${index}`}
+                        name={props.chapter + props.qnumber}
                         value={choice}
                         onChange={event => props.change(event, props.id)}
                         required
@@ -25,9 +25,7 @@ function Problem(props) {
                 <form
                     className="Choices-form"
                     onSubmit={
-                        event => {
-                            props.submit(event, props.id)
-                        }
+                        event => props.submit(event, props.id)
                     }
                 >
                     <div className="Choices">
@@ -41,9 +39,7 @@ function Problem(props) {
             input = (
                 <form
                     onSubmit={
-                        event => {
-                            props.submit(event, props.id)
-                        }
+                        event => props.submit(event, props.id)
                     }
                 >
                     <input
@@ -61,9 +57,9 @@ function Problem(props) {
             break
         case problemType.ALL_THAT_APPLY:
             input = props.choices.map((choice, index) =>
-                <div key={`${props.qnumber}-${index}`}>
+                <div key={`${props.chapter}-${props.qnumber}-${index}`}>
                     <input type="checkbox"
-                        id={`${props.qnumber}-${index}`}
+                        id={`${props.chapter}-${props.qnumber}-${index}`}
                         name={"answer"}
                         value={choice}
                         onChange={event => props.change(event, props.id)}
@@ -75,9 +71,7 @@ function Problem(props) {
                 <form
                     className="Choices-form"
                     onSubmit={
-                        event => {
-                            props.submit(event, props.id)
-                        }
+                        event => props.submit(event, props.id)
                     }
                 >
                     <div className="Choices">
