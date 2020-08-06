@@ -30,6 +30,7 @@
 .Option-icon svg {
     width: 20px;
     height: 20px;
+    transition: all 0.5s
 }
 
 .Option-icon svg:hover {
