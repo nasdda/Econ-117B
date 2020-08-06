@@ -23,7 +23,6 @@ function Practice(props) {
     }
 
     const changeHandler = (event, identifier) => {
-        console.log(event)
         const updatedProblems = { ...chapterState.problems }
         const updatedProblem = { ...updatedProblems[identifier] }
 
@@ -74,7 +73,6 @@ function Practice(props) {
     const resetHandler = (chapter) => {
         document.querySelectorAll('input[type="checkbox"]').forEach(checkBox => checkBox.checked = false)
         document.querySelectorAll('input[type="radio"]').forEach(checkBox => checkBox.checked = false)
-        document.querySelectorAll('input[type="text"]').forEach(checkBox => checkBox.checked = false)
         const resettedProblems = {}
         for (let k in chapterContent[chapter]) {
             resettedProblems[k] = createProblem(chapterContent[chapter][k])
