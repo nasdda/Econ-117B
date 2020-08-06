@@ -9,3 +9,17 @@
     flex-direction: column;
     width: 100%;
 }
+
+.Reset-button {
+    font-size: 24px;
+    padding: 5px 20px;
+    width: fit-content;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: rgb(53, 99, 68);
+    color: white
+}
+
+.Reset-button:hover {
+    background-color: rgb(65, 119, 83);;
+}

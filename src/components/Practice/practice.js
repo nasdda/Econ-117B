@@ -1,48 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+
 import Toolbar from '../Navigation/Toolbar/toolbar'
+import Chapter from './Chapters/chapter'
+import createProblem from './ProblemFormat/problem_config'
+import problemType from './ProblemFormat/problem_types'
+
+// problems
+import * as chapterContent from './Chapter Problems/probems.json'
+
 import '../../App.css'
 import './practice.css'
 
 
-
-////
-import Chapter from './Chapters/chapter'
-import database from '../../Database/database'
-import createProblem from './ProblemFormat/problem_config'
-import Loader from '../Loader/loader'
-import problemType from './ProblemFormat/problem_types'
-
-
-
 function Practice(props) {
-
     const [chapterState, setChapter] = useState({ chapter: '*', error: false })
-
-    useEffect(() => {
-        let chapter = 'chapter' + chapterState.chapter
-        let databasePath = '/' + chapter + '.json'
-        if (chapterState.chapter !== '*' && !chapterState[chapter]) {
-            database.get(databasePath).then(response => {
-                const problems = {}
-                for (let k in response.data) {
-                    problems[k] = createProblem(response.data[k])
-                }
-                setChapter({
-                    ...chapterState,
-                    [chapter]: { ...problems },
-                    error: false
-                })
-            }).catch(e => {
-                if (!chapterState.error) {
-                    setChapter({
-                        ...chapterState,
-                        error: true
-                    })
-                }
-                console.log(e)
-            })
-        }
-    })
 
     const onChapterChange = (event) => {
         setChapter({
@@ -50,8 +21,6 @@ function Practice(props) {
             chapter: event.target.value.trim()
         })
     }
-
-    let chapterProblems = null
 
     const changeHandler = (event, identifier) => {
         const updatedChapter = { ...chapterState["chapter" + chapterState.chapter] }
@@ -99,6 +68,43 @@ function Practice(props) {
         })
     }
 
+    const resetHandler = (chapter) => {
+        const resettedProblems = {}
+        for (let k in chapterContent.default[chapter]) {
+            resettedProblems[k] = createProblem(chapterContent.default[chapter][k])
+        }
+        document.querySelectorAll(".Choices-form").forEach(form => {
+            form.reset()
+        })
+        setChapter({
+            ...chapterState,
+            [chapter]: resettedProblems
+        })
+    }
+
+
+
+    let chapterProblems = null
+    let resetButton = null
+    const problems = {}
+
+    const setDisplayedContent = (chapter) => {
+        resetButton = <button className="Reset-button" onClick={() => { resetHandler(chapter) }}>Reset</button>
+        if (!chapterState[chapter]) {
+            for (let k in chapterContent.default[chapter]) {
+                problems[k] = createProblem(chapterContent.default[chapter][k])
+            }
+            setChapter({
+                ...chapterState,
+                [chapter]: problems
+            })
+        }
+        chapterProblems = <Chapter problems={chapterState[chapter]}
+            onChange={changeHandler}
+            onSubmit={submitHandler}
+        />
+    }
+
 
     switch (chapterState.chapter) {
         case '*':
@@ -110,23 +116,10 @@ function Practice(props) {
             )
             break
         case '1':
-            if (chapterState.chapter1) {
-                chapterProblems = <Chapter problems={chapterState.chapter1}
-                    onChange={changeHandler}
-                    onSubmit={submitHandler}
-                />
-            } else {
-                chapterProblems = <Loader />
-            }
+            setDisplayedContent('chapter1')
             break
         case '2':
-            if (chapterState.chapter2) {
-                chapterProblems = <Chapter problems={chapterState.chapter2}
-                    onChange={changeHandler}
-                    onSubmit={submitHandler} />
-            } else {
-                chapterProblems = <Loader />
-            }
+            setDisplayedContent('chapter2')
             break
         default:
             chapterProblems = <p className="Notice">No problems available.</p>
@@ -147,6 +140,7 @@ function Practice(props) {
                 </select>
             </div>
             <br />
+            {resetButton}
             {chapterState.error ?
                 <p className="Error-message">Failed to load questions. <br />Please check your internet connection or try refreshing page.</p> :
                 chapterProblems}

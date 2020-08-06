@@ -3,8 +3,10 @@ import Toolbar from '../Navigation/Toolbar/toolbar'
 import '../../App.css'
 import './home.css'
 
+import * as chapters from '../Practice/Chapter Problems/probems.json'
 
 const home = () => {
+    console.log(chapters)
     return (
         <div>
             <Toolbar />
