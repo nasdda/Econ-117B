@@ -4,6 +4,7 @@ import '../../App.css'
 import './home.css'
 
 const home = () => {
+    console.log(process.env.NODE_ENV)
     return (
         <div>
             <Toolbar />
