@@ -6,7 +6,7 @@ import createProblem from './ProblemFormat/problem_config'
 import problemType from './ProblemFormat/problem_types'
 
 // problems
-import * as chapterContent from './Chapter Problems/probems.json'
+import chapterContent from '../../Chapter Problems/problems.js'
 
 import '../../App.css'
 import './practice.css'
@@ -16,6 +16,7 @@ function Practice(props) {
     const [chapterState, setChapter] = useState({ chapter: '*' })
 
     const onChapterChange = (event) => {
+        console.log("chapter change")
         setChapter({
             chapter: event.target.value.trim(),
             canReset: false
@@ -23,7 +24,6 @@ function Practice(props) {
     }
 
     const changeHandler = (event, identifier) => {
-        console.log(event.target.value)
         const updatedProblems = { ...chapterState.problems }
         const updatedProblem = { ...updatedProblems[identifier] }
 
@@ -77,8 +77,8 @@ function Practice(props) {
         document.querySelectorAll(".Choices-form").forEach(form => {
             form.reset()
         })
-        for (let k in chapterContent.default[chapter]) {
-            resettedProblems[k] = createProblem(chapterContent.default[chapter][k])
+        for (let k in chapterContent[chapter]) {
+            resettedProblems[k] = createProblem(chapterContent[chapter][k])
         }
         setChapter({
             ...chapterState,
@@ -93,13 +93,15 @@ function Practice(props) {
     const problems = {}
 
     const setDisplayedContent = (chapter) => {
+        console.log("display")
         resetButton = <button className="Reset-button"
             onClick={() => { resetHandler(chapter) }}
             disabled={!chapterState.canReset}>Reset</button>
         if (!chapterState.problems) {
-            for (let k in chapterContent.default[chapter]) {
-                problems[k] = createProblem(chapterContent.default[chapter][k])
+            for (let k in chapterContent[chapter]) {
+                problems[k] = createProblem(chapterContent[chapter][k])
             }
+            console.log("setting chapter", problems)
             setChapter({
                 ...chapterState,
                 problems: problems
