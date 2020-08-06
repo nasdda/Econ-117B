@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 
 import Toolbar from '../Navigation/Toolbar/toolbar'
 import Chapter from './Chapters/chapter'
@@ -16,7 +16,6 @@ function Practice(props) {
     const [chapterState, setChapter] = useState({ chapter: '*' })
 
     const onChapterChange = (event) => {
-        console.log("chapter change")
         setChapter({
             chapter: event.target.value.trim(),
             canReset: false
@@ -93,7 +92,6 @@ function Practice(props) {
     const problems = {}
 
     const setDisplayedContent = (chapter) => {
-        console.log("display")
         resetButton = <button className="Reset-button"
             onClick={() => { resetHandler(chapter) }}
             disabled={!chapterState.canReset}>Reset</button>
@@ -101,18 +99,17 @@ function Practice(props) {
             for (let k in chapterContent[chapter]) {
                 problems[k] = createProblem(chapterContent[chapter][k])
             }
-            console.log("setting chapter", problems)
             setChapter({
                 ...chapterState,
                 problems: problems
             })
+        } else {
+            chapterProblems = <Chapter problems={chapterState.problems}
+                chapter={chapter}
+                onChange={changeHandler}
+                onSubmit={submitHandler}
+            />
         }
-
-        chapterProblems = <Chapter problems={chapterState.problems}
-            chapter={chapter}
-            onChange={changeHandler}
-            onSubmit={submitHandler}
-        />
     }
 
     switch (chapterState.chapter) {
@@ -129,7 +126,6 @@ function Practice(props) {
             break
         case '2':
             setDisplayedContent('chapter2')
-
             break
         default:
             chapterProblems = <p className="Notice">No problems available.</p>

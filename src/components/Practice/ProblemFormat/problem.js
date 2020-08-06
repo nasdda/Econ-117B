@@ -48,6 +48,7 @@ function Problem(props) {
                         type="text"
                         placeholder={props.placeHolder}
                         onChange={event => props.change(event, props.id)}
+                        maxLength="100"
                         required
                     />
                     <br />

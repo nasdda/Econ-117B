@@ -21,5 +21,9 @@
 }
 
 .Reset-button:hover {
-    background-color: rgb(65, 119, 83);;
+    background-color: rgb(65, 119, 83);
+}
+
+.Reset-button:disabled {
+    background-color: rgb(96, 107, 100);
 }

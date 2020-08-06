@@ -19,16 +19,22 @@
     height: 30px
 }
 
-
 .Option-icon {
     display: flex;
     justify-content: space-between;
     width: 60px;
-    margin-left: 30px;
+    margin-left: 20px;
     margin-top: 33px
 }
 
 .Option-icon svg {
     width: 20px;
     height: 20px;
+}
+
+.Option-icon svg:hover {
+    margin-top: -10px;
+    width: 30px;
+    height: 30px;
+    transition: all 0.5s
 }

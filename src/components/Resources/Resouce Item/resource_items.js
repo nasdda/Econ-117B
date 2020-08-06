@@ -17,7 +17,9 @@ function ResourceItem(props) {
                 <p className="File-name"><a href={props.src} rel="noopener noreferrer" target="_blank">{props.name}</a></p>
                 <div className="Option-icon">
                     <div className="tooltip">
-                        <Preview onClick={() => setToggle(true)} />
+                        <div className="Icon-background">
+                            <Preview onClick={() => setToggle(true)} />
+                        </div>
                         <span className="tooltiptext">Preview</span>
                     </div>
 

@@ -27,6 +27,7 @@ a {
 .tooltip {
     position: relative;
     display: inline-block;
+    height: fit-content;
 }
 
 .tooltip .tooltiptext {
