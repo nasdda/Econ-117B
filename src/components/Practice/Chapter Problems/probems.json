@@ -56,6 +56,12 @@
       "choices" : [ "numbers", "sushi", "shoes", "laptop", "noodles", "poptart" ],
       "question" : "Which of the following are foods?",
       "type" : 3
+    },
+    "problem5" : {
+      "answer" : [ "water" ],
+      "choices" : [ "ashes", "water", "nugget" ],
+      "question" : "Which of the following are liquids?",
+      "type" : 3
     }
   }
 }

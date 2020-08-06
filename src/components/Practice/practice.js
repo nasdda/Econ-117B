@@ -13,16 +13,17 @@ import './practice.css'
 
 
 function Practice(props) {
-    const [chapterState, setChapter] = useState({ chapter: '*', error: false })
+    const [chapterState, setChapter] = useState({ chapter: '*' })
 
     const onChapterChange = (event) => {
         setChapter({
             chapter: event.target.value.trim(),
-            error: false
+            canReset: false
         })
     }
 
     const changeHandler = (event, identifier) => {
+        console.log(event.target.value)
         const updatedProblems = { ...chapterState.problems }
         const updatedProblem = { ...updatedProblems[identifier] }
 
@@ -38,7 +39,8 @@ function Practice(props) {
         updatedProblems[identifier] = updatedProblem
         setChapter({
             ...chapterState,
-            problems: updatedProblems
+            problems: updatedProblems,
+            canReset: true
         })
     }
 
@@ -64,7 +66,8 @@ function Practice(props) {
         updatedProblems[identifier] = updatedProblem
         setChapter({
             ...chapterState,
-            problems: updatedProblems
+            problems: updatedProblems,
+            canReset: true
         })
     }
 
@@ -77,11 +80,12 @@ function Practice(props) {
         for (let k in chapterContent.default[chapter]) {
             resettedProblems[k] = createProblem(chapterContent.default[chapter][k])
         }
-        console.log(resettedProblems)
         setChapter({
             ...chapterState,
-            problems: resettedProblems
+            problems: resettedProblems,
+            canReset: false
         })
+
     }
 
     let chapterProblems = null
@@ -89,7 +93,9 @@ function Practice(props) {
     const problems = {}
 
     const setDisplayedContent = (chapter) => {
-        resetButton = <button className="Reset-button" onClick={() => { resetHandler(chapter) }}>Reset</button>
+        resetButton = <button className="Reset-button"
+            onClick={() => { resetHandler(chapter) }}
+            disabled={!chapterState.canReset}>Reset</button>
         if (!chapterState.problems) {
             for (let k in chapterContent.default[chapter]) {
                 problems[k] = createProblem(chapterContent.default[chapter][k])
@@ -121,6 +127,7 @@ function Practice(props) {
             break
         case '2':
             setDisplayedContent('chapter2')
+
             break
         default:
             chapterProblems = <p className="Notice">No problems available.</p>
@@ -142,9 +149,7 @@ function Practice(props) {
             </div>
             <br />
             {resetButton}
-            {chapterState.error ?
-                <p className="Error-message">Failed to load questions. <br />Please check your internet connection or try refreshing page.</p> :
-                chapterProblems}
+            {chapterProblems}
         </React.Fragment>
     )
 }

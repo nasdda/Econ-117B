@@ -49,6 +49,10 @@
     text-align: left;
 }
 
+.Selectable:hover{
+    cursor: pointer;
+}
+
 @media (max-width: 1000px) {
     .Problem {
         width: 600px;

@@ -11,7 +11,7 @@ function Problem(props) {
         case problemType.MULTIPLE_CHOICE:
             input = props.choices.map((choice, index) => (
                 <div key={`${props.chapter}-${props.qnumber}-${index}`}>
-                    <input type="radio"
+                    <input type="radio" className="Selectable"
                         id={`${props.chapter}-${props.qnumber}-${index}`}
                         name={props.chapter + props.qnumber}
                         value={choice}
@@ -58,7 +58,7 @@ function Problem(props) {
         case problemType.ALL_THAT_APPLY:
             input = props.choices.map((choice, index) =>
                 <div key={`${props.chapter}-${props.qnumber}-${index}`}>
-                    <input type="checkbox"
+                    <input type="checkbox" className="Selectable"
                         id={`${props.chapter}-${props.qnumber}-${index}`}
                         name={"answer"}
                         value={choice}
