@@ -8,10 +8,10 @@ const toolbar = (props) => {
         <div className='Toolbar'>
             <div className='Site-name'>ECON117B</div>
             <div className='Navigation'>
-                <NavLink to="/" className='Navigation-option' exact={true}>Home</NavLink>
-                <NavLink to="/practice" className='Navigation-option'>Practice</NavLink>
-                <NavLink to="/resources" className='Navigation-option'>Resources</NavLink>
-                <NavLink to="/contact" className='Navigation-option'>Contact</NavLink>
+                <NavLink to="/" className='Navigation-option' activeClassName='Option-active' exact={true}>Home</NavLink>
+                <NavLink to="/practice" className='Navigation-option' activeClassName='Option-active'>Practice</NavLink>
+                <NavLink to="/resources" className='Navigation-option' activeClassName='Option-active'>Resources</NavLink>
+                <NavLink to="/contact" className='Navigation-option' activeClassName='Option-active' >Contact</NavLink>
             </div>
         </div>
     )

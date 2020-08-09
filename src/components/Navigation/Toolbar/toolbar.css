@@ -35,13 +35,18 @@
 .Navigation-option {
     width: 30%;
     text-align: center;
-    padding-top: 15px;
-    padding-bottom: 15px;
+    padding-top: 13px;
+    padding-bottom: 12px;
     color: rgb(255, 255, 255);
     text-decoration: none;
+    transition: background-color 0.5s ease;
 }
 
 .Navigation :hover {
-    background-color: rgb(36, 187, 74);
     cursor: pointer;
+}
+
+.Option-active {
+    background-color: rgb(32, 160, 64);
+    transition: background-color 0.5s ease;
 }
