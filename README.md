@@ -1,7 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-### `**** Link ****`
+# Link
 
-https://econ117b-tax-factors.herokuapp.com/
+## https://econ117b-tax-factors.herokuapp.com/
 
 
