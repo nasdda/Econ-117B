@@ -134,7 +134,7 @@ function Practice(props) {
             <Toolbar />
             <h1 className="Page-title">Practice</h1>
             <div className="Practice-container">
-                <select className="Chapter-selection" id="homework" onChange={(event) => onChapterChange(event)}>
+                <select className="Chapter-selection" onChange={(event) => onChapterChange(event)}>
                     <option value="*">-select chapter-</option>
                     <option value="1">Chapter 1</option>
                     <option value="2">Chapter 2</option>
