@@ -35,7 +35,7 @@
 }
 
 .Option-icon svg:hover {
-    margin-top: -10px;
+    margin-top: -5px;
     width: 30px;
     height: 30px;
     transition: all 0.5s;

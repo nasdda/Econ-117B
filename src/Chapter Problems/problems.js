@@ -1,85 +1,85 @@
 export default {
-  "chapter1": {
-    "problem1": {
-      "answer": "A",
-      "choices": [
-        "A",
-        "B",
-        "C",
-        "D"
-      ],
-      "question": "test problem A",
-      "type": 1
+    "chapter1": {
+        "problem1": {
+            "answer": "A",
+            "choices": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "question": "test problem A",
+            "type": 1
+        },
+        "problem2": {
+            "answer": "B",
+            "choices": [
+                "A",
+                "B",
+                "C",
+                "D"
+            ],
+            "question": "test problem B",
+            "type": 1
+        },
+        "problem3": {
+            "answer": "C",
+            "placeHolder": "Enter answer here",
+            "question": "test problem C",
+            "type": 2
+        },
     },
-    "problem2": {
-      "answer": "B",
-      "choices": [
-        "A",
-        "B",
-        "C",
-        "D"
-      ],
-      "question": "test problem B",
-      "type": 1
-    },
-    "problem3": {
-      "answer": "C",
-      "placeHolder": "Enter answer here",
-      "question": "test problem C",
-      "type": 2
-    },
-  },
-  "chapter2": {
-    "problem1": {
-      "answer": "Mongol Empire",
-      "choices": [
-        "Qing Dynasty",
-        "Mongol Empire",
-        "Roman Empire"
-      ],
-      "question": "What Was the Largest Contiguous Empire in History?",
-      "type": 1
-    },
-    "problem2": {
-      "answer": "Liberia",
-      "placeHolder": "Answer here",
-      "question": "Which African Country Named its Capital After a U.S. President?",
-      "type": 2
-    },
-    "problem3": {
-      "answer": "George Washington",
-      "placeHolder": "First and last name",
-      "question": "Who was the first US president?",
-      "type": 2
-    },
-    "problem4": {
-      "answer": [
-        "sushi",
-        "noodles",
-        "poptart"
-      ],
-      "choices": [
-        "numbers",
-        "sushi",
-        "shoes",
-        "laptop",
-        "noodles",
-        "poptart"
-      ],
-      "question": "Which of the following are foods?",
-      "type": 3
-    },
-    "problem5": {
-      "answer": [
-        "water"
-      ],
-      "choices": [
-        "ashes",
-        "water",
-        "nugget"
-      ],
-      "question": "Which of the following are liquids?",
-      "type": 3
+    "chapter2": {
+        "problem1": {
+            "answer": "Mongol Empire",
+            "choices": [
+                "Qing Dynasty",
+                "Mongol Empire",
+                "Roman Empire"
+            ],
+            "question": "What Was the Largest Contiguous Empire in History?",
+            "type": 1
+        },
+        "problem2": {
+            "answer": "Liberia",
+            "placeHolder": "Answer here",
+            "question": "Which African Country Named its Capital After a U.S. President?",
+            "type": 2
+        },
+        "problem3": {
+            "answer": "George Washington",
+            "placeHolder": "First and last name",
+            "question": "Who was the first US president?",
+            "type": 2
+        },
+        "problem4": {
+            "answer": [
+                "sushi",
+                "noodles",
+                "poptart"
+            ],
+            "choices": [
+                "numbers",
+                "sushi",
+                "shoes",
+                "laptop",
+                "noodles",
+                "poptart"
+            ],
+            "question": "Which of the following are foods?",
+            "type": 3
+        },
+        "problem5": {
+            "answer": [
+                "water"
+            ],
+            "choices": [
+                "ashes",
+                "water",
+                "nugget"
+            ],
+            "question": "Which of the following are liquids?",
+            "type": 3
+        }
     }
-  }
 }

@@ -14,8 +14,8 @@ export default[
             {
                 name: "Course Outline",
                 icon: <PdfIcon />,
-                downloadable: true,
-                source: CourseSyllabus
+                source: CourseSyllabus,
+                downloadable: true
             }
         ]
     }

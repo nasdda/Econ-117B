@@ -9,7 +9,6 @@ import '../../App.css'
 import './resources.css'
 
 
-
 const resources = (props) => {
     const displaySections = sections.map(section => (
         <ResourceSection
