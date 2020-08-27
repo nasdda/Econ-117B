@@ -3,13 +3,7 @@ import Toolbar from '../Navigation/Toolbar/toolbar'
 
 import ResourceSection from './Resource Section/resource_section'
 
-// files
-import CourseSyllabus from './PDFs/files/PDF-Course-Outline-Econ.-117B-Fall-2018.pdf'
-
-// icons
-import { ReactComponent as PdfIcon } from '../../assets/pdf.svg'
-import { ReactComponent as VideoIcon } from '../../assets/play-button.svg'
-
+import sections from './sections'
 
 import '../../App.css'
 import './resources.css'
@@ -18,28 +12,9 @@ import './resources.css'
 
 const resources = (props) => {
 
-    let sections = [
-        {
-            sectionName: "Introduction",
-            contents: [
-                {
-                    downloadable: true,
-                    icon: <PdfIcon />,
-                    name: "Course Syllabus",
-                    source: CourseSyllabus
-                },
-                {
-                    downloadable: false,
-                    icon: <VideoIcon />,
-                    name: "Good Song",
-                    source: "https://www.youtube.com/embed/lFNWUL9fqG8?list=LLXVwRHW9UOTmw20RfXGzVTg"
-                }
-            ]
-        }
+    
 
-    ]
-
-    sections = sections.map(section => (
+    const displaySections = sections.map(section => (
         <ResourceSection
             key={section.sectionName}
             sectionName={section.sectionName}
@@ -51,7 +26,7 @@ const resources = (props) => {
         <React.Fragment>
             <Toolbar />
             <h1 className="Page-title">Resources</h1>
-            {sections}
+            {displaySections}
         </React.Fragment>
     )
 }
