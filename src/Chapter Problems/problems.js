@@ -28,34 +28,6 @@ export default {
       "question": "test problem C",
       "type": 2
     },
-    "problem4": {
-      "answer": [
-        "yes",
-        "sure",
-        "of course"
-      ],
-      "choices": [
-        "yes",
-        "sure",
-        "of course",
-        "no"
-      ],
-      "question": "is Max lazy?",
-      "type": 3
-    },
-    "problem5": {
-      "answer": "Jack",
-      "choices": [
-        "Max",
-        "Xin",
-        "Martin",
-        "Matthew",
-        "Jack"
-      ],
-      "placeHolder": "Tell the truth",
-      "question": "Who is the next president?",
-      "type": 2
-    }
   },
   "chapter2": {
     "problem1": {

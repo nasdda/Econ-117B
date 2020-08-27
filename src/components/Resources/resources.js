@@ -11,9 +11,6 @@ import './resources.css'
 
 
 const resources = (props) => {
-
-    
-
     const displaySections = sections.map(section => (
         <ResourceSection
             key={section.sectionName}
