@@ -8,7 +8,8 @@ const home = () => {
         <div>
             <Toolbar />
             <h1 className="Page-title">Home</h1>
-            <p className="Notice">*Site scaling may be off when accessed from mobile devices*</p>
+            <p className="Notice">Welcome to ECON 117B -- Tax Factors (Corporate Tax)!</p>
+            <p className="Notice">The practice section in the navigation bar contains practice questions for homework and exams</p>
         </div>
     )
 }
