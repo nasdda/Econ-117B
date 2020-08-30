@@ -6,7 +6,6 @@ import './problem.css'
 function Problem(props) {
     let input = null
     let outcome = null
-
     switch (props.type) {
         case problemType.MULTIPLE_CHOICE:
             input = props.choices.map((choice, index) => (
@@ -31,7 +30,9 @@ function Problem(props) {
                     <div className="Choices">
                         {input}
                     </div>
-                    <button className="Check-button" type="submit">Check</button>
+                    <button className="Form-button" type="submit">Check</button>
+                    <br/>
+                    {props.hint && <button className="Form-button" type="button">Hint</button>}
                 </form>
             )
             break
@@ -52,7 +53,7 @@ function Problem(props) {
                         required
                     />
                     <br />
-                    <button className="Check-button" type="submit">Check</button>
+                    <button className="Form-button" type="submit">Check</button>
                 </form>
             )
             break
@@ -78,7 +79,7 @@ function Problem(props) {
                     <div className="Choices">
                         {input}
                     </div>
-                    <button className="Check-button" type="submit">Check</button>
+                    <button className="Form-button" type="submit">Check</button>
                 </form>
             )
             break
@@ -110,7 +111,6 @@ function Problem(props) {
                 {outcome}
             </div>
         </div>
-
     )
 }
 

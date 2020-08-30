@@ -3,7 +3,6 @@ import './toolbar.css'
 import { NavLink } from 'react-router-dom'
 
 const toolbar = (props) => {
-    console.log("rendering toolbar")
     return (
         <div className='Toolbar'>
             <div className='Site-name'>ECON117B</div>

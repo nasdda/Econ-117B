@@ -3,15 +3,19 @@
     flex-direction: column;
     width: 900px;
     background-color: #fbffd9;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 30px auto;
     text-align: center;
     font-size: 24px;
     padding: 0 10px 20px 10px;
+    transition-duration: 0.5s;
+}
+
+.Problem:hover{
+    transition-duration: 0.5s;
     box-shadow: 8px 8px 3px 1px rgba(101, 109, 103, 0.5);
 }
 
-
-.Check-button {
+.Form-button {
     width: 100px;
     height: 40px;
     font-size: 24px;

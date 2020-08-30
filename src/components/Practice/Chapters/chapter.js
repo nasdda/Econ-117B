@@ -7,7 +7,6 @@ const chapter = (props) => {
     const problemsArray = []
 
     for (let key in props.problems) {
-
         problemsArray.push({
             id: key,
             config: props.problems[key]
@@ -28,6 +27,7 @@ const chapter = (props) => {
             qnumber={index + 1}
             change={props.onChange}
             submit={props.onSubmit}
+            hint={prob.config.hint}
         />
     ))
 

@@ -1,11 +1,6 @@
 .Chapter-selection {
     font-size: 24px;
     margin-top: 20px;
-    border: none
-}
-
-.Chapter-selection:focus{
-    border: none
 }
 
 .Practice-container {
