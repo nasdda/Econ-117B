@@ -1,28 +1,69 @@
 export default {
     "chapter1": {
         "problem1": {
-            "answer": "A",
+            "answer": "No",
             "choices": [
-                "A",
-                "B",
-                "C",
-                "D"
+                "Yes",
+                "No",
+                "It depends"
             ],
-            "question": "test problem A",
+            "question": "H gave the wife $1 million. Would a gift tax return need to be filled?",
             "type": 1
         },
         "problem2": {
-            "answer": "B",
+            "answer": "485k",
             "choices": [
-                "A",
-                "B",
-                "C",
-                "D"
+                "500k",
+                "15k",
+                "515k",
+                "485k"
             ],
-            "question": "test problem B",
+            "question": "H gave his non-dependent daughter $500k, what is the amount of taxable gift?",
             "type": 1
         },
         "problem3": {
+            "answer": "True",
+            "choices": [
+                "True",
+                "False"
+            ],
+            "question": "True or False: In order to calculate the potential gift tax, the donor would need to add taxable gifts made in prior years to the taxable gifts made in the current year ",
+            "type": 1
+        },
+        "problem4": {
+            "answer": "Form Number: 709; Due: April 15",
+            "choices": [
+                "Form Number: 706; Due: April 15",
+                "Form Number: 706; Due: Nine month after death",
+                "Form Number: 709; Due: April 15",
+                "Form Number: 709; Due: Nine month after death"
+            ],
+            "question": "What is the form number to be used to report taxable gifts and when is it due?",
+            "type": 1
+        },
+        "problem5": {
+            "answer": "Form Number: 706; Due: Nine month after death",
+            "choices": [
+                "Form Number: 706; Due: April 15",
+                "Form Number: 706; Due: Nine month after death",
+                "Form Number: 709; Due: April 15",
+                "Form Number: 709; Due: Nine month after death"
+            ],
+            "question": "What is the form number to be used to report estate tax and when is it due?",
+            "type": 1
+        },
+        "problem6": {
+            "answer": "It's not required, but it should be filed",
+            "choices": [
+                "It is required, and it should be filed",
+                "It's not required, but it should be filed",
+                "It is required, but it should not be filed",
+                "It is not required, and it should not be filed"
+            ],
+            "question": "W died in the current year. H, W's husband, is still living. The value of W's estate was $8,000,000. No prior taxable gifts were made.   Question: Must an estate tax return be filed? Should an estate tax return be filed?",
+            "type": 1
+        },
+        "problem7": {
             "answer": "C",
             "placeHolder": "Enter answer here",
             "question": "test problem C",
