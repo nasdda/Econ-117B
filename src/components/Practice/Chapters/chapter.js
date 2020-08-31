@@ -28,6 +28,8 @@ const chapter = (props) => {
             change={props.onChange}
             submit={props.onSubmit}
             hint={prob.config.hint}
+            incorrectText={prob.config.incorrectText}
+            correctText={prob.config.correctText}
         />
     ))
 

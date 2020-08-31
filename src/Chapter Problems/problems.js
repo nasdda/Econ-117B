@@ -9,7 +9,9 @@ export default {
                 "It depends"
             ],
             "question": "H gave the wife $1 million. Would a gift tax return need to be filled?",
-            "type": types.MULTIPLE_CHOICE
+            "type": types.MULTIPLE_CHOICE,
+            "incorrectText": "try harder",
+            "correctText": "damn, you didn't have to cheat..."
         },
         "problem2": {
             "answer": "485k",

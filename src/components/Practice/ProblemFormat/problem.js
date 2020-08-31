@@ -94,13 +94,13 @@ function Problem(props) {
         if (props.correct) {
             outcome = (
                 <div className="Correct">
-                    <p>Correct!</p>
+                    <p>{props.correctText || "Correct!"}</p>
                 </div>
             )
         } else {
             outcome = (
                 <div className="Incorrect">
-                    <p>Incorrect. Try again.</p>
+                    <p>{props.incorrectText || "Incorrect. Try again."}</p>
                 </div>
             )
         }
@@ -109,7 +109,7 @@ function Problem(props) {
     const hintContent = showHint ? (
         <p>{props.hint}</p>
     ) : null
-    
+
     return (
         <div className="Problem">
             <div>
