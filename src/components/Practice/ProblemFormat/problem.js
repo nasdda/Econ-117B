@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import problemType from './problem_types'
 import './problem.css'
 
 
 function Problem(props) {
+    const [showHint, setHint] = useState(false);
     let input = null
     let outcome = null
+    const hintClicked = (event) => {
+        setHint(!showHint)
+    }
     switch (props.type) {
         case problemType.MULTIPLE_CHOICE:
             input = props.choices.map((choice, index) => (
@@ -31,8 +35,7 @@ function Problem(props) {
                         {input}
                     </div>
                     <button className="Form-button" type="submit">Check</button>
-                    <br/>
-                    {props.hint && <button className="Form-button" type="button">Hint</button>}
+                    <br />
                 </form>
             )
             break
@@ -103,11 +106,17 @@ function Problem(props) {
         }
     }
 
+    const hintContent = showHint ? (
+        <p>{props.hint}</p>
+    ) : null
+    
     return (
         <div className="Problem">
             <div>
                 <p>{props.qnumber}. {props.question}</p>
                 {input}
+                {props.hint && <button className="Form-button" type="button" onClick={hintClicked}>Hint</button>}
+                {hintContent}
                 {outcome}
             </div>
         </div>

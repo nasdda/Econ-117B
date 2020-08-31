@@ -21,7 +21,7 @@ export default {
             ],
             "question": "H gave his non-dependent daughter $500k, what is the amount of taxable gift?",
             "type": types.MULTIPLE_CHOICE,
-            "hint": "Hello"
+            "hint": "use your brain goddamit!"
         },
         "problem3": {
             "answer": "True",
