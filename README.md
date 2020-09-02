@@ -2,6 +2,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Link
 
-## https://econ117b-tax-factors.herokuapp.com/
+## https://econ-117-b.vercel.app/
 
 
