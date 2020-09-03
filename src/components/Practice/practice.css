@@ -20,8 +20,9 @@
     color: white
 }
 
-.Reset-button:hover {
+.Reset-button:hover:enabled {
     background-color: rgb(65, 119, 83);
+    cursor: pointer
 }
 
 .Reset-button:disabled {

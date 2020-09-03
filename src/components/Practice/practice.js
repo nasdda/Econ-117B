@@ -109,6 +109,7 @@ function Practice(props) {
         }
     }
 
+    
     switch (chapterState.chapter) {
         case '*':
             chapterProblems = (
