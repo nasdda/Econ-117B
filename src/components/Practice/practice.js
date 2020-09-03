@@ -125,7 +125,7 @@ function Practice(props) {
             setDisplayedContent('chapter2')
             break
         default:
-            chapterProblems = <p className="Notice">No problems available.</p>
+            chapterProblems = <p className="Notice">No problems available yet.</p>
             break
     }
 
